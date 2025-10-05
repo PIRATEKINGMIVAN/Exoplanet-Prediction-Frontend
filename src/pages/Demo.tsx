@@ -62,7 +62,7 @@ const Demo = () => {
     setIsRunning(true);
     toast.info("Processing...");
     try {
-      const response = await fetch('http://127.0.0.1:8000/predict', {
+      const response = await fetch('https://exoplanet-prediction-backend.onrender.com/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(inputData),
@@ -87,7 +87,7 @@ const Demo = () => {
     if (!file) return;
     const formData = new FormData();
     formData.append("file", file);
-    const response = await fetch("http://127.0.0.1:8000/batch_predict", {
+    const response = await fetch("https://exoplanet-prediction-backend.onrender.com/batch_predict", {
       method: "POST",
       body: formData,
     });
